@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="JpegExifReader.Common/JpegExifReader.Common.csproj" Id="fa226a23-17d9-4e29-9799-80c951842043" />
+  <Project Path="JpegExifReader.Startup/JpegExifReader.Startup.csproj" Id="966d7f21-2b0d-4530-8c37-0ed7934d882d" />
+</Solution>
