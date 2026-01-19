@@ -35,7 +35,7 @@ namespace JpegExifReader.Common
             {
                 foreach (var tag in directory.Tags)
                 {
-                    exifData.Add(Tuple.Create(directory.Name, tag.Name, tag.Description));
+                    exifData.Add(Tuple.Create(directory.Name, tag.Name, tag.Description ?? string.Empty));
                 }
             }
 

@@ -9,15 +9,15 @@ namespace JpegExifReader.Startup
     {
         private static void Main(string[] args)
         {
-            //if (args.Length == 0)
-            //{
-            //    Console.WriteLine("Please provide the path to a JPEG image file.");
-            //    return;
-            //}
+            if (args.Length == 0)
+            {
+                Console.WriteLine("没有指定jpg文件。");
+                return;
+            }
 
-            //string imagePath = args[0];
+            string imagePath = args[0];
             // for test
-            string imagePath = "C:\\Users\\lhuo\\OneDrive - SS&C Technologies, Inc\\Pictures\\1379178870.jpg";
+            //string imagePath = "C:\\Users\\lhuo\\OneDrive - SS&C Technologies, Inc\\Pictures\\AI method.png";
 
             var fileInfo = new FileInfo(imagePath);
 
@@ -63,17 +63,17 @@ namespace JpegExifReader.Startup
                     }
                     else
                     {
-                        Console.WriteLine("图像位深: 不可用");
+                        Console.WriteLine("图像位深: 不可用。");
                     }
 
                     var compressionRatio = ExifReader.EstimateCompressionRatio(directories, fileInfo.Length);
                     if (compressionRatio.HasValue)
                     {
-                        Console.WriteLine($"Estimated compression ratio (uncompressed:compressed) = {compressionRatio.Value:F2}:1");
+                        Console.WriteLine($"压缩因子 (未压缩大小:压缩后大小) = {compressionRatio.Value:F2}:1");
                     }
                     else
                     {
-                        Console.WriteLine("Estimated compression ratio: unavailable.");
+                        Console.WriteLine("压缩因子: 不可用。");
                     }
 
                     const string columnFormat = "{0,-15} | {1,-35} | {2}";
@@ -85,16 +85,14 @@ namespace JpegExifReader.Startup
                         Console.WriteLine(columnFormat, directory, tagName, tagDescription ?? string.Empty);
                     }
                 }
-
-                
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"出现错误: {ex.Message}");
             }
 
             Console.WriteLine("====================================================");
-            Console.WriteLine("Press Enter to exit...");
+            Console.WriteLine("按任意键退出...");
             Console.ReadKey();
         }
     }
