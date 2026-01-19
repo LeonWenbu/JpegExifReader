@@ -76,14 +76,14 @@ namespace JpegExifReader.Startup
                         Console.WriteLine("压缩因子: 不可用。");
                     }
 
-                    const string columnFormat = "{0,-15} | {1,-35} | {2}";
-                    Console.WriteLine(columnFormat, "Directory", "Tag", "Value");
-                    Console.WriteLine(new string('-', 90));
+                    //const string columnFormat = "{0,-15} | {1,-35} | {2}";
+                    //Console.WriteLine(columnFormat, "Directory", "Tag", "Value");
+                    //Console.WriteLine(new string('-', 90));
 
-                    foreach (var (directory, tagName, tagDescription) in exifData)
-                    {
-                        Console.WriteLine(columnFormat, directory, tagName, tagDescription ?? string.Empty);
-                    }
+                    //foreach (var (directory, tagName, tagDescription) in exifData)
+                    //{
+                    //    Console.WriteLine(columnFormat, directory, tagName, tagDescription ?? string.Empty);
+                    //}
                 }
             }
             catch (Exception ex)
